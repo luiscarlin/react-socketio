@@ -7,9 +7,12 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    subscribeToTimer((err, timestamp) => this.setState({
+
+    const callback = (err, timestamp) => this.setState({
       timestamp
-    }));
+    })
+
+    subscribeToTimer(1000, callback)
   }
 
   state = {

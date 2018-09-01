@@ -6,9 +6,14 @@ const io = require('socket.io')()
 io.on('connection', (client) => {
     // here you can start emitting events to the client
 
+    // expect client to emit a 'subscribeToTimer' with an interval
     client.on('subscribeToTimer', (interval) => {
         console.log('client is subscribing to timer with interval ', interval);
+
+        // 'setInterval()' will call a function at an interval set by a client
         setInterval(() => {
+
+          // emit 'timer' event with the current date
           client.emit('timer', new Date());
         }, interval);
       });
