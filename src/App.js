@@ -1,34 +1,28 @@
 import React from "react";
-// import { subscribeToTimer } from "./api";
 import styled from "styled-components";
+import io from "socket.io-client";
 
 const AppWrapper = styled.h1`
   text-align: center;
   font-size: 100px;
   color: black;
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
 `;
 
+const socket = io();
+
+socket.on("users", count => {
+  console.log(count);
+});
+
 function App() {
-  return <AppWrapper>Hello World!</AppWrapper>;
-
-  // constructor(props) {
-  //   super(props);
-
-  // const callback = (err, timestamp) =>
-  //   this.setState({
-  //     timestamp
-  //   });
-
-  // subscribeToTimer(1000, callback);
-  // }
-
-  // state = {
-  //   timestamp: "no timestamp yet"
-  // };
-
-  // render() {
-  //   return <AppWrapper >Hello World! {this.state.timestamp}</AppWrapper>;
-  // }
+  return (
+    <AppWrapper onClick={() => console.log("hello")}>Hello World!</AppWrapper>
+  );
 }
 
 export default App;

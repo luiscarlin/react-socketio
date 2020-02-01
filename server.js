@@ -6,12 +6,17 @@ const io = require("socket.io")(http);
 
 const DIST_DIR = path.join(__dirname, "build");
 
+const users = { total: 0 };
+
 io.on("connection", socket => {
-  console.log("user connected");
+  users.total += 1;
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
+    users.total--;
+    io.emit("users", users.total);
   });
+
+  io.emit("users", users.total);
 
   // socket.on("subscribeToTimer", interval => {
   //   console.log("client is subscribing to timer with interval ", interval);
