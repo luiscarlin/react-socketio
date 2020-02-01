@@ -1,29 +1,42 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import io from 'socket.io-client'
+import socket from './socket'
 
-const AppWrapper = styled.h1`
+const AppWrapper = styled.main`
   text-align: center;
-  font-size: 100px;
-  color: black;
-  cursor: pointer;
 
-  &:hover {
-    color: red;
+  h1 {
+    font-size: 100px;
+    color: ${props => props.color};
+    cursor: pointer;
   }
 `
 
-const socket = io()
-
-socket.on('users', count => {
-  console.log(count)
-})
-
 function App() {
   const [color, setColor] = useState('black')
+  const [numUsers, setNumUsers] = useState(0)
+
+  const emitColorChange = () => {
+    const nextColor = color === 'black' ? 'red' : 'black'
+    setColor(nextColor)
+
+    socket.emit('clientColorChange', nextColor)
+  }
+
+  socket.on('users', count => {
+    setNumUsers(count)
+  })
+
+  socket.on('serverColorChange', newColor => {
+    console.log('old', color, 'new', newColor)
+    setColor(newColor)
+  })
 
   return (
-    <AppWrapper onClick={() => console.log('hello')}>Hello World!</AppWrapper>
+    <AppWrapper color={color}>
+      <h1 onClick={() => emitColorChange()}>Hello World!</h1>
+      <h2>Connected Browsers: {numUsers}</h2>
+    </AppWrapper>
   )
 }
 
