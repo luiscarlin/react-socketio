@@ -14,7 +14,6 @@ const SimpleWrapper = styled.main`
 
 function Simple() {
   const [color, setColor] = useState('black')
-  const [numUsers, setNumUsers] = useState(0)
 
   const emitColorChange = () => {
     const nextColor = color === 'black' ? 'red' : 'black'
@@ -22,10 +21,6 @@ function Simple() {
 
     socket.emit('clientColorChange', nextColor)
   }
-
-  socket.on('users', count => {
-    setNumUsers(count)
-  })
 
   socket.on('serverColorChange', newColor => {
     console.log('old', color, 'new', newColor)
@@ -35,7 +30,6 @@ function Simple() {
   return (
     <SimpleWrapper color={color}>
       <h1 onClick={() => emitColorChange()}>Hello World!</h1>
-      <h2>Connected Browsers: {numUsers}</h2>
     </SimpleWrapper>
   )
 }

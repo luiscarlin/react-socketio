@@ -6,18 +6,7 @@ const io = require('socket.io')(http)
 
 const DIST_DIR = path.join(__dirname, 'build')
 
-const users = { total: 0 }
-
 io.on('connection', socket => {
-  users.total += 1
-
-  socket.on('disconnect', () => {
-    users.total--
-    socket.emit('users', users.total)
-  })
-
-  socket.emit('users', users.total)
-
   socket.on('clientColorChange', color => {
     socket.broadcast.emit('serverColorChange', color)
   })
