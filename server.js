@@ -6,8 +6,6 @@ const io = require("socket.io")(http);
 
 const DIST_DIR = path.join(__dirname, "build");
 
-const users = { total: 0 };
-
 io.on("connection", client => {
   // here you can start emitting events to the client
 
@@ -29,6 +27,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(DIST_DIR, "index.html"));
 });
 
-http.listen(3000, () => {
-  console.log("listening on http://localhost:3000");
+http.listen(8000, () => {
+  console.log("listening on http://localhost:8000");
 });
