@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import io from "socket.io-client";
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import io from 'socket.io-client'
 
 const AppWrapper = styled.h1`
   text-align: center;
@@ -11,18 +11,20 @@ const AppWrapper = styled.h1`
   &:hover {
     color: red;
   }
-`;
+`
 
-const socket = io();
+const socket = io()
 
-socket.on("users", count => {
-  console.log(count);
-});
+socket.on('users', count => {
+  console.log(count)
+})
 
 function App() {
+  const [color, setColor] = useState('black')
+
   return (
-    <AppWrapper onClick={() => console.log("hello")}>Hello World!</AppWrapper>
-  );
+    <AppWrapper onClick={() => console.log('hello')}>Hello World!</AppWrapper>
+  )
 }
 
-export default App;
+export default App

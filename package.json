@@ -8,6 +8,7 @@
     "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
+    "prettier": "^1.19.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5",
@@ -29,6 +30,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "now --public && now alias && now rm react-socketio --safe --yes"
+    "deploy": "now --public && now alias && now rm react-socketio --safe --yes",
+    "lint": "prettier --write 'src/**/*.js'"
   }
 }
