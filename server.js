@@ -6,13 +6,19 @@ const io = require("socket.io")(http);
 
 const DIST_DIR = path.join(__dirname, "build");
 
-io.on("connection", client => {
-  client.on("subscribeToTimer", interval => {
-    console.log("client is subscribing to timer with interval ", interval);
-    setInterval(() => {
-      client.emit("timer", new Date());
-    }, interval);
+io.on("connection", socket => {
+  console.log("user connected");
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
   });
+
+  // socket.on("subscribeToTimer", interval => {
+  //   console.log("client is subscribing to timer with interval ", interval);
+  //   setInterval(() => {
+  //     socket.emit("timer", new Date());
+  //   }, interval);
+  // });
 });
 
 app.use(express.static(DIST_DIR));

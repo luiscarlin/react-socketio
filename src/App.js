@@ -1,31 +1,34 @@
-import React, { Component } from "react";
-import { subscribeToTimer } from "./api";
+import React from "react";
+// import { subscribeToTimer } from "./api";
+import styled from "styled-components";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const AppWrapper = styled.h1`
+  text-align: center;
+  font-size: 100px;
+  color: black;
+`;
 
-    const callback = (err, timestamp) =>
-      this.setState({
-        timestamp
-      });
+function App() {
+  return <AppWrapper>Hello World!</AppWrapper>;
 
-    subscribeToTimer(1000, callback);
-  }
+  // constructor(props) {
+  //   super(props);
 
-  state = {
-    timestamp: "no timestamp yet"
-  };
+  // const callback = (err, timestamp) =>
+  //   this.setState({
+  //     timestamp
+  //   });
 
-  render() {
-    return (
-      <div className="App">
-        <p className="App-intro">
-          This is the timer value: {this.state.timestamp}
-        </p>
-      </div>
-    );
-  }
+  // subscribeToTimer(1000, callback);
+  // }
+
+  // state = {
+  //   timestamp: "no timestamp yet"
+  // };
+
+  // render() {
+  //   return <AppWrapper >Hello World! {this.state.timestamp}</AppWrapper>;
+  // }
 }
 
 export default App;
