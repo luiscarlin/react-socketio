@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { subscribeToTimer } from './api';
+import React, { Component } from "react";
+import { subscribeToTimer } from "./api";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
-    const callback = (err, timestamp) => this.setState({
-      timestamp
-    })
+    const callback = (err, timestamp) =>
+      this.setState({
+        timestamp
+      });
 
-    subscribeToTimer(1000, callback)
+    subscribeToTimer(1000, callback);
   }
 
   state = {
-    timestamp: 'no timestamp yet'
+    timestamp: "no timestamp yet"
   };
 
   render() {
     return (
       <div className="App">
         <p className="App-intro">
-        This is the timer value: {this.state.timestamp}
+          This is the timer value: {this.state.timestamp}
         </p>
       </div>
     );
