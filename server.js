@@ -1,8 +1,13 @@
-const io = require("socket.io")();
+const express = require("express");
+const path = require("path");
+const app = express();
+const http = require("http").Server(app);
+const io = require("socket.io")(http);
 
-// websockets are long running duplex channels between the client and the serverd
+const DIST_DIR = path.join(__dirname, "build");
 
-// handle the connection to the client, so  you can emit (publish) events
+const users = { total: 0 };
+
 io.on("connection", client => {
   // here you can start emitting events to the client
 
@@ -18,7 +23,12 @@ io.on("connection", client => {
   });
 });
 
-// start listening for clients
-const port = 8000;
-io.listen(port);
-console.log("listening on port ", port);
+app.use(express.static(DIST_DIR));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(DIST_DIR, "index.html"));
+});
+
+http.listen(3000, () => {
+  console.log("listening on http://localhost:3000");
+});
