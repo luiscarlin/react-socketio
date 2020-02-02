@@ -9,13 +9,17 @@ const HomeWrapper = styled.main`
   align-items: center;
   flex-direction: column;
 
+  h1 {
+    text-align: center;
+  }
+
   li {
     margin: 2rem;
   }
 
   a {
-    font-size: 5rem;
-    color: SteelBlue;
+    font-size: 6rem;
+    color: black;
   }
 `
 

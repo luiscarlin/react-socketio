@@ -35,9 +35,13 @@ const GlobalStyle = createGlobalStyle`
     }
     a {
       text-decoration: none;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+
 
       &:active, &:hover, &:focus {
         outline: none;
+        color: steelblue;
       }
     }
     li {
