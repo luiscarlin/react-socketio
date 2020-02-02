@@ -35,7 +35,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 6rem;
       }
     }
-    }
     h2 {
       font-weight: normal;
       line-height: 1.5;
@@ -54,7 +53,6 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       transition: all .2s ease-in-out;
       color: steelblue;
-
 
       &:active, &:hover, &:focus {
         outline: none;
