@@ -3,11 +3,12 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
-  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
   html {
     box-sizing: border-box;
     font-size: 10px;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
