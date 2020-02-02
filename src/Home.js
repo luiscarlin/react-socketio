@@ -3,23 +3,18 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const HomeWrapper = styled.main`
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  h1 {
-    font-size: 100px;
-  }
-
-  li,
-  a {
-    list-style-type: none;
+  li {
+    margin: 2rem;
   }
 
   a {
-    font-size: 50px;
-    text-decoration: none;
+    font-size: 5rem;
     color: SteelBlue;
   }
 `
@@ -31,6 +26,9 @@ function Home() {
       <ui>
         <li>
           <Link to="/simple">Simple</Link>
+        </li>
+        <li>
+          <Link to="/withcontrols">With Controls</Link>
         </li>
       </ui>
     </HomeWrapper>

@@ -3,10 +3,13 @@ import styled from 'styled-components'
 import socket from './socket'
 
 const SimpleWrapper = styled.main`
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   h1 {
-    font-size: 100px;
     color: ${props => props.color};
     cursor: pointer;
   }
