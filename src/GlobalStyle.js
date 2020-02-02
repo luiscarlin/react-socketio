@@ -1,5 +1,6 @@
 import normalize from 'normalize.css'
 import { createGlobalStyle } from 'styled-components'
+import { darken } from 'polished'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -27,22 +28,37 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.5;
       margin: 0;
       font-size: 8rem;
+      @media only screen and (max-width: 900px) {
+        font-size: 7rem;
+      }
+      @media only screen and (max-width: 600px) {
+        font-size: 6rem;
+      }
+    }
     }
     h2 {
       font-weight: normal;
       line-height: 1.5;
       margin: 0;
       font-size: 5rem;
+      color: black;
+      @media only screen and (max-width: 900px) {
+        font-size: 4rem;
+      }
+      @media only screen and (max-width: 600px) {
+        font-size: 3rem;
+      }
     }
     a {
       text-decoration: none;
       cursor: pointer;
       transition: all .2s ease-in-out;
+      color: steelblue;
 
 
       &:active, &:hover, &:focus {
         outline: none;
-        color: steelblue;
+        color: ${darken(0.2, 'steelblue')};
       }
     }
     li {

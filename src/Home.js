@@ -16,11 +16,6 @@ const HomeWrapper = styled.main`
   li {
     margin: 2rem;
   }
-
-  a {
-    font-size: 6rem;
-    color: black;
-  }
 `
 
 function Home() {
@@ -29,10 +24,14 @@ function Home() {
       <h1>Select your demo</h1>
       <ui>
         <li>
-          <Link to="/simple">Simple</Link>
+          <h2>
+            <Link to="/simple">Simple</Link>
+          </h2>
         </li>
         <li>
-          <Link to="/withcontrols">With Controls</Link>
+          <h2>
+            <Link to="/withcontrols">With Controls</Link>
+          </h2>
         </li>
       </ui>
     </HomeWrapper>

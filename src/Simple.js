@@ -12,6 +12,7 @@ const SimpleWrapper = styled.main`
   h1 {
     color: ${props => props.color};
     cursor: pointer;
+    text-align: center;
   }
 `
 
@@ -26,7 +27,6 @@ function Simple() {
   }
 
   socket.on('serverColorChange', newColor => {
-    console.log('old', color, 'new', newColor)
     setColor(newColor)
   })
 

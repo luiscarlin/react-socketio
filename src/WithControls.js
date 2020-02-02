@@ -55,7 +55,7 @@ const WithControls = () => {
     <Wrapper color={color}>
       {role === undefined && (
         <h1>
-          Are you are a <a onClick={() => setRole('viewer')}>viewer</a> or{' '}
+          <a onClick={() => setRole('viewer')}>viewer</a> or{' '}
           <a onClick={() => setRole('controller')}>controller</a>?
         </h1>
       )}
